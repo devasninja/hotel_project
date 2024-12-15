@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:second_project/hotel_data.dart';
-import 'package:second_project/hotels_header.dart';
 
 class HotelItem extends StatelessWidget {
   final Hotel hotelData;
