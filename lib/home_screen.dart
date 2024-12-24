@@ -14,6 +14,10 @@ class HomeScreen extends StatelessWidget {
     Hotel(imageName: 'pic1.jpg', location: 'location4'),
     Hotel(imageName: 'pic1.jpg', location: 'location5'),
     Hotel(imageName: 'pic1.jpg', location: 'location6'),
+    Hotel(imageName: 'pic1.jpg', location: 'location7'),
+    Hotel(imageName: 'pic1.jpg', location: 'location8'),
+    Hotel(imageName: 'pic1.jpg', location: 'location9'),
+    Hotel(imageName: 'pic1.jpg', location: 'location10'),
   ];
 
   @override
@@ -23,7 +27,6 @@ class HomeScreen extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 12),
         child: SafeArea(
           bottom: false,
-
           child: Column(
             children: [
               Container(
@@ -31,103 +34,19 @@ class HomeScreen extends StatelessWidget {
                 child: const HotelHeader(),
               ),
               Expanded(
-                child: ListView.builder(
-                  itemBuilder: buildHotelItem,
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12),
+                  itemBuilder: (_, index) => HotelItem(hotels[index]),
                   itemCount: hotels.length,
                 ),
               ),
             ],
           ),
-
-          // ListView(
-          //   children: [
-          //     Container(
-          //       padding: const EdgeInsets.symmetric(
-          //         vertical: 12,
-          //       ),
-          //       // margin: const EdgeInsets.symmetric(horizontal: 16),
-          //       decoration: BoxDecoration(
-          //         borderRadius: BorderRadius.circular(16),
-          //         color: const Color(0xFF024383),
-          //       ),
-          //       child: const Text(
-          //         'Available Hotels',
-          //         style: TextStyle(
-          //           color: Colors.white,
-          //           fontWeight: FontWeight.bold,
-          //           fontSize: 16,
-          //         ),
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ),
-          //     Container(
-          //       margin: const EdgeInsets.only(top: 12),
-          //       child: Row(
-          //         children: [
-          //           HotelItem(hotels[0]),
-          //           const SizedBox(width: 12),
-          //           HotelItem(hotels[1]),
-          //           const SizedBox(height: 12),
-          //         ],
-          //       ),
-          //     ),
-          //     Container(
-          //       margin: const EdgeInsets.only(top: 12),
-          //       child: Row(
-          //         children: [
-          //           HotelItem(hotels[0]),
-          //           const SizedBox(width: 12),
-          //           HotelItem(hotels[1]),
-          //           const SizedBox(height: 12),
-          //         ],
-          //       ),
-          //     ),
-          //     Container(
-          //       margin: const EdgeInsets.only(top: 12),
-          //       child: Row(
-          //         children: [
-          //           HotelItem(hotels[0]),
-          //           const SizedBox(width: 12),
-          //           HotelItem(hotels[1]),
-          //           const SizedBox(height: 12),
-          //         ],
-          //       ),
-          //     ),
-          //     Container(
-          //       margin: const EdgeInsets.only(top: 12),
-          //       child: Row(
-          //         children: [
-          //           HotelItem(hotels[0]),
-          //           const SizedBox(width: 12),
-          //           HotelItem(hotels[1]),
-          //           const SizedBox(height: 12),
-          //         ],
-          //       ),
-          //     ),
-          //     Container(
-          //       margin: const EdgeInsets.only(top: 12),
-          //       child: Row(
-          //         children: [
-          //           HotelItem(hotels[0]),
-          //           const SizedBox(width: 12),
-          //           HotelItem(hotels[1]),
-          //           const SizedBox(height: 12),
-          //         ],
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          //
-          //
-          // ),
         ),
       ),
-    );
-  }
-
-  Widget buildHotelItem(BuildContext context, int index) {
-    return HotelItem(
-      hotels[index],
     );
   }
 }
